@@ -8,21 +8,31 @@ class MyTheme {
 
   static ThemeData lightMode = ThemeData(
       primaryColor: primaryLightColor,
+
+      ///* AppBarTheme :-
       appBarTheme: const AppBarTheme(
         centerTitle: true,
         backgroundColor: Colors.transparent,
       ),
       scaffoldBackgroundColor: Colors.transparent,
+
+      ///* TextTheme :-
       textTheme: TextTheme(
         titleLarge: TextStyle(
           fontSize: 30,
           fontWeight: FontWeight.bold,
           color: blackColor,
         ),
+        titleMedium: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w600,
+          color: blackColor,
+        ),
       ),
 
       /// backgroundColor in `BottomNavigationBar` has a bug 🪲
       //// bottomNavigationBarTheme: BottomNavigationBarThemeData(backgroundColor: primaryLightColor,
+      ///* BottomNavigationBarTheme :-
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         type: BottomNavigationBarType.fixed,
         selectedIconTheme: const IconThemeData(size: 44),
