@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/screens/tabs/sebha/widgets/sebha_stack.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -8,37 +9,40 @@ class SebhaTab extends StatefulWidget {
 }
 
 class _SebhaTabState extends State<SebhaTab> {
+  /// [ MARK ]  Variables :-
+  int _counter = 0;
+  int _currentAzkarIndex = 0;
+  double _turns = 0.0;
+
+  final List<String> _azkar = [
+    "سبحان الله",
+    "الحمدلله",
+    "لا اله إلا الله",
+    "الله أكبر",
+    "لا حول ولا قوة إلا بالله"
+  ];
+
+  /// [ MARK ]  STF LifeCycel :-
   @override
   Widget build(BuildContext context) {
-    /// MARK: Variables
-
-    // List<String> azkar = [
-    //   "سبحان الله",
-    //   "الحمدلله",
-    //   "لا اله إلا الله",
-    //   "الله أكبر",
-    //   "لا حول ولا قوة إلا بالله"
-    // ];
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          Expanded(
-            flex: 4,
-            child: Container(
-              child: Image.asset("assets/images/sebha_ligh.png"),
-            ),
+          SizedBox(
+            width: 300,
+            height: 300,
+            child: SebhaStack(turns: _turns),
           ),
-          Expanded(
-            child: Container(
-              margin: const EdgeInsets.only(top: 25),
-              child: Text(
-                "Tasbeh Count",
-                style: Theme.of(context).textTheme.titleMedium,
-                textAlign: TextAlign.center,
-              ),
-            ),
+          Text(
+            "Tasbeh Count",
+            style: Theme.of(context).textTheme.titleMedium,
+            textAlign: TextAlign.center,
+          ),
+          const SizedBox(
+            height: 20,
           ),
           MaterialButton(
             minWidth: 69,
@@ -47,10 +51,14 @@ class _SebhaTabState extends State<SebhaTab> {
             shape: OutlineInputBorder(
                 borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(25)),
-            onPressed: () {},
-            child: const Text(
-              "33",
-              style: TextStyle(
+            onPressed: () {
+              _incrementCounter();
+              _turns += 0.03;
+              setState(() {});
+            },
+            child: Text(
+              "$_counter",
+              style: const TextStyle(
                   fontSize: 23,
                   fontWeight: FontWeight.w900,
                   color: Colors.black),
@@ -67,14 +75,27 @@ class _SebhaTabState extends State<SebhaTab> {
                   Radius.circular(25),
                 ),
               ),
-              child: const Text("سبحان الله",
-                  style: TextStyle(
+              child: Text(_azkar[_currentAzkarIndex],
+                  style: const TextStyle(
                       fontSize: 23,
                       fontWeight: FontWeight.w900,
                       color: Colors.white))),
-          const Spacer()
+          const SizedBox(
+            height: 100,
+          ),
         ],
       ),
     );
+  }
+
+  /// [ MARK ]  Utilities :-
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+      if (_counter == 33) {
+        _counter = 0;
+        _currentAzkarIndex = (_currentAzkarIndex + 1) % _azkar.length;
+      }
+    });
   }
 }
