@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/screens/tabs/quraan/surah_screen.dart';
 import 'package:islami_app/screens/tabs/tabs_screen.dart';
 import 'package:islami_app/utilities/mytheme.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       initialRoute: TabsScreen.routeName,
       routes: {
         TabsScreen.routeName: (context) => const TabsScreen(),
+        SurahScreen.routeName: (context) => SurahScreen()
       },
     );
   }

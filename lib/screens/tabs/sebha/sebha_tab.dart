@@ -22,6 +22,17 @@ class _SebhaTabState extends State<SebhaTab> {
     "لا حول ولا قوة إلا بالله"
   ];
 
+  /// [ MARK ]  Utilities :-
+  void _incrementCounter() {
+    setState(() {
+      _counter++;
+      if (_counter == 33) {
+        _counter = 0;
+        _currentAzkarIndex = (_currentAzkarIndex + 1) % _azkar.length;
+      }
+    });
+  }
+
   /// [ MARK ]  STF LifeCycel :-
   @override
   Widget build(BuildContext context) {
@@ -86,16 +97,5 @@ class _SebhaTabState extends State<SebhaTab> {
         ],
       ),
     );
-  }
-
-  /// [ MARK ]  Utilities :-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-      if (_counter == 33) {
-        _counter = 0;
-        _currentAzkarIndex = (_currentAzkarIndex + 1) % _azkar.length;
-      }
-    });
   }
 }

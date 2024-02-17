@@ -16,11 +16,11 @@ class TabsScreen extends StatefulWidget {
 
 class _TabsScreenState extends State<TabsScreen> {
   int selectedTabIndex = 0;
-  List<Widget> tabs = const [
+  List<Widget> tabs = [
     QuraanTab(),
-    HadethTab(),
-    SebhaTab(),
-    RadioTab(),
+    const HadethTab(),
+    const SebhaTab(),
+    const RadioTab(),
   ];
   @override
   Widget build(BuildContext context) {

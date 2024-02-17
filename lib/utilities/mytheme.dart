@@ -11,6 +11,8 @@ class MyTheme {
 
       ///* AppBarTheme :-
       appBarTheme: const AppBarTheme(
+        scrolledUnderElevation:
+            0.0, // To remove the elevation of appBar while scrollin down
         centerTitle: true,
         backgroundColor: Colors.transparent,
       ),
@@ -26,6 +28,16 @@ class MyTheme {
         titleMedium: TextStyle(
           fontSize: 25,
           fontWeight: FontWeight.w600,
+          color: blackColor,
+        ),
+        titleSmall: TextStyle(
+          fontSize: 25,
+          fontWeight: FontWeight.w400,
+          color: blackColor,
+        ),
+        labelSmall: TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.w400,
           color: blackColor,
         ),
       ),
