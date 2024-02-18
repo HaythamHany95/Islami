@@ -52,5 +52,10 @@ class MyTheme {
         showUnselectedLabels: false,
         selectedItemColor: blackColor,
         unselectedItemColor: Colors.white,
+      ),
+
+      ///* ProgressIndicatorTheme :-
+      progressIndicatorTheme: ProgressIndicatorThemeData(
+        color: primaryLightColor,
       ));
 }

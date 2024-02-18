@@ -50,10 +50,7 @@ class _SurahScreenState extends State<SurahScreen> {
           ),
         ),
         body: _ayat.isEmpty
-            ? Center(
-                child: CircularProgressIndicator(
-                color: MyTheme.primaryLightColor,
-              ))
+            ? const Center(child: CircularProgressIndicator())
             : ContentCard(
                 name: "سورة ${arg.name}",
                 itemCount: _ayat.length,
