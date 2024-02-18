@@ -58,7 +58,7 @@ class _SurahScreenState extends State<SurahScreen> {
                 name: "سورة ${arg.name}",
                 itemCount: _ayat.length,
                 itemBuilder: ((context, i) => Text(
-                      "${_ayat[i]}(${(i + 1)})",
+                      "${_ayat[i]}☽${(i + 1)}☾",
                       textDirection: TextDirection.rtl,
                       style: Theme.of(context).textTheme.titleSmall,
                       textAlign: TextAlign.center,
