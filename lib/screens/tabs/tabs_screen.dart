@@ -5,6 +5,9 @@ import 'package:islami_app/screens/tabs/radio/radio_tab.dart';
 import 'package:islami_app/screens/tabs/sebha/sebha_tab.dart';
 import 'package:islami_app/screens/tabs/widgets/app_navbar.dart';
 
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class TabsScreen extends StatefulWidget {
   static const String routeName = "tabs_screen";
 
@@ -35,7 +38,7 @@ class _TabsScreenState extends State<TabsScreen> {
         Scaffold(
           appBar: AppBar(
             title: Text(
-              "islami",
+              AppLocalizations.of(context)!.app_title,
               style: Theme.of(context).textTheme.titleLarge,
             ),
           ),

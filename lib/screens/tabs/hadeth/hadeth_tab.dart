@@ -4,6 +4,9 @@ import 'package:islami_app/screens/tabs/hadeth/hadeth_screen.dart';
 import 'package:islami_app/screens/tabs/hadeth/models/hadeth.dart';
 import 'package:islami_app/utilities/mytheme.dart';
 
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HadethTab extends StatefulWidget {
   const HadethTab({super.key});
 
@@ -46,7 +49,7 @@ class _HadethTabState extends State<HadethTab> {
           color: MyTheme.primaryLightColor,
         ),
         Text(
-          "Ahadeth",
+          AppLocalizations.of(context)!.alhadeth,
           style: Theme.of(context).textTheme.titleMedium,
         ),
         Divider(

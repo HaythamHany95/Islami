@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islami_app/screens/tabs/hadeth/models/hadeth.dart';
 import 'package:islami_app/screens/tabs/quraan/widgets/content_card.dart';
 
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HadethScreen extends StatefulWidget {
   static const String routeName = "hadeth_screen";
 
@@ -27,7 +30,7 @@ class _HadethScreenState extends State<HadethScreen> {
       Scaffold(
         appBar: AppBar(
           title: Text(
-            "islami",
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),

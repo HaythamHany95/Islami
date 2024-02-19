@@ -4,6 +4,9 @@ import 'package:islami_app/screens/tabs/quraan/surah_screen.dart';
 import 'package:islami_app/screens/tabs/tabs_screen.dart';
 import 'package:islami_app/utilities/mytheme.dart';
 
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -22,6 +25,9 @@ class MyApp extends StatelessWidget {
         SurahScreen.routeName: (context) => const SurahScreen(),
         HadethScreen.routeName: (context) => const HadethScreen()
       },
+      locale: const Locale("en"),
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
     );
   }
 }

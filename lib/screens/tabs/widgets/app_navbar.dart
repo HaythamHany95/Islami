@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/utilities/mytheme.dart';
 
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class AppBottomNavigationBar extends StatelessWidget {
   final int currenIndex;
   final Function(int)? onTap;
@@ -13,31 +16,32 @@ class AppBottomNavigationBar extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(canvasColor: MyTheme.primaryLightColor),
       child: BottomNavigationBar(
+        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         currentIndex: currenIndex,
         onTap: onTap,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage("assets/images/icon_quran.png"),
                 size: 50,
               ),
-              label: "Quraan"),
+              label: AppLocalizations.of(context)!.quraan),
           BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage("assets/images/icon_hadeth.png"),
               ),
-              label: "Ahadeth"),
+              label: AppLocalizations.of(context)!.ahadeth),
           BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage("assets/images/icon_sebha.png"),
                 size: 52,
               ),
-              label: "Sebha"),
+              label: AppLocalizations.of(context)!.sebha),
           BottomNavigationBarItem(
-              icon: ImageIcon(
+              icon: const ImageIcon(
                 AssetImage("assets/images/icon_radio.png"),
               ),
-              label: "Radio"),
+              label: AppLocalizations.of(context)!.radio),
         ],
       ),
     );

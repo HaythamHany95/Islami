@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/screens/tabs/quraan/models/surah.dart';
 import 'package:islami_app/screens/tabs/quraan/widgets/content_card.dart';
-import 'package:islami_app/utilities/mytheme.dart';
+
+/// Localization import
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SurahScreen extends StatefulWidget {
   static const String routeName = "surah_screen";
@@ -45,7 +47,7 @@ class _SurahScreenState extends State<SurahScreen> {
       Scaffold(
         appBar: AppBar(
           title: Text(
-            "islami",
+            AppLocalizations.of(context)!.app_title,
             style: Theme.of(context).textTheme.titleLarge,
           ),
         ),
