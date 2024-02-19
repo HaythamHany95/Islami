@@ -16,7 +16,6 @@ class AppBottomNavigationBar extends StatelessWidget {
     return Theme(
       data: Theme.of(context).copyWith(canvasColor: MyTheme.primaryLightColor),
       child: BottomNavigationBar(
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
         currentIndex: currenIndex,
         onTap: onTap,
         items: [
