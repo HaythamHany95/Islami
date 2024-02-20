@@ -45,14 +45,11 @@ class ContentCard extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: Padding(
-                padding: const EdgeInsets.only(right: 40),
-                child: IconButton(
-                  onPressed: () {},
-                  icon: const ImageIcon(
-                    AssetImage("assets/images/Icon awesome-play-circle.png"),
-                    size: 40,
-                  ),
+                  child: IconButton(
+                iconSize: 40,
+                onPressed: () {},
+                icon: const ImageIcon(
+                  AssetImage("assets/images/Icon awesome-play-circle.png"),
                 ),
               ))
             ],
