@@ -40,6 +40,11 @@ class MyTheme {
         fontWeight: FontWeight.w400,
         color: blackColor,
       ),
+      labelMedium: TextStyle(
+        fontSize: 22,
+        fontWeight: FontWeight.w600,
+        color: blackColor,
+      ),
     ),
 
     /// backgroundColor in `BottomNavigationBar` has a bug 🪲

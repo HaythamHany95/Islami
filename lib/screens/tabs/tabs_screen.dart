@@ -3,6 +3,7 @@ import 'package:islami_app/screens/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami_app/screens/tabs/quraan/quraan_tab.dart';
 import 'package:islami_app/screens/tabs/radio/radio_tab.dart';
 import 'package:islami_app/screens/tabs/sebha/sebha_tab.dart';
+import 'package:islami_app/screens/tabs/settings/settings_tab.dart';
 import 'package:islami_app/screens/tabs/widgets/app_navbar.dart';
 
 /// Localization import
@@ -24,6 +25,7 @@ class _TabsScreenState extends State<TabsScreen> {
     const HadethTab(),
     const SebhaTab(),
     const RadioTab(),
+    const SettingsTab()
   ];
   @override
   Widget build(BuildContext context) {

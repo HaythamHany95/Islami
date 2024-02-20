@@ -41,6 +41,12 @@ class AppBottomNavigationBar extends StatelessWidget {
                 AssetImage("assets/images/icon_radio.png"),
               ),
               label: AppLocalizations.of(context)!.radio),
+          BottomNavigationBarItem(
+              icon: const Icon(
+                Icons.settings_suggest_outlined,
+                size: 33,
+              ),
+              label: AppLocalizations.of(context)!.settings),
         ],
       ),
     );
