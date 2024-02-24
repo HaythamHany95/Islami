@@ -8,5 +8,11 @@
     "alhadeth": "Alahadeth",
     "tasbeh_count": "Tasbeh Count",
     "quraan_radio": "Al Quran Al Kareem",
-    "settings": "Settings"
+    "settings": "Settings",
+    "lang": "Language",
+    "mode": "Mode",
+    "en": "English",
+    "ar": "Arabic",
+    "light": "Light",
+    "dark": "Dark"
 }

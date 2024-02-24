@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/tabs/hadeth/hadeth_screen.dart';
 import 'package:islami_app/screens/tabs/quraan/surah_screen.dart';
 import 'package:islami_app/screens/tabs/tabs_screen.dart';
 import 'package:islami_app/utilities/mytheme.dart';
+import 'package:provider/provider.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => AppConfigProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,6 +21,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightMode,
@@ -23,11 +30,11 @@ class MyApp extends StatelessWidget {
       routes: {
         TabsScreen.routeName: (context) => const TabsScreen(),
         SurahScreen.routeName: (context) => const SurahScreen(),
-        HadethScreen.routeName: (context) => const HadethScreen()
+        HadethScreen.routeName: (context) => const HadethScreen(),
       },
-      locale: const Locale("en"),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(provider.appLanguage),
     );
   }
 }

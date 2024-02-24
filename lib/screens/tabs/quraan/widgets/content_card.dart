@@ -34,13 +34,12 @@ class ContentCard extends StatelessWidget {
             top: MediaQuery.of(context).size.width * 0.06,
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+            textDirection: TextDirection.ltr,
             children: [
               Expanded(
                 flex: 2,
                 child: Text(
                   name,
-                  textAlign: TextAlign.end,
                   style: Theme.of(context).textTheme.titleMedium,
                 ),
               ),
