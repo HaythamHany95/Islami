@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/tabs/sebha/widgets/sebha_stack.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:islami_app/utilities/mytheme.dart';
+import 'package:provider/provider.dart';
 
 class SebhaTab extends StatefulWidget {
   const SebhaTab({super.key});
@@ -39,6 +42,8 @@ class _SebhaTabState extends State<SebhaTab> {
   /// [ MARK ]  STF LifeCycel :-
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return SizedBox(
       width: double.infinity,
       height: double.infinity,
@@ -69,14 +74,16 @@ class _SebhaTabState extends State<SebhaTab> {
             width: 69,
             height: 81,
             decoration: BoxDecoration(
-                color: const Color(0xffcab497),
+                color: (provider.isDarkMode(provider.appMode)
+                    ? Theme.of(context).primaryColor
+                    : const Color(0xffcab497)),
                 borderRadius: BorderRadius.circular(25)),
             child: Text(
               "$_counter",
-              style: const TextStyle(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black),
+              style: Theme.of(context)
+                  .textTheme
+                  .labelMedium
+                  ?.copyWith(fontSize: 22),
             ),
           ),
           const SizedBox(
@@ -85,16 +92,15 @@ class _SebhaTabState extends State<SebhaTab> {
           Container(
               padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 7),
               decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+                color: (provider.isDarkMode(provider.appMode))
+                    ? MyTheme.yellowColor
+                    : Theme.of(context).primaryColor,
                 borderRadius: const BorderRadius.all(
                   Radius.circular(25),
                 ),
               ),
               child: Text(_azkar[_currentAzkarIndex],
-                  style: const TextStyle(
-                      fontSize: 23,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.white))),
+                  style: Theme.of(context).textTheme.labelSmall)),
           const SizedBox(
             height: 100,
           ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/utilities/mytheme.dart';
+import 'package:provider/provider.dart';
 
 class DropdownFormField extends StatelessWidget {
   final String? hintText;
@@ -15,6 +17,8 @@ class DropdownFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return Container(
       margin: const EdgeInsets.all(10),
       child: ButtonTheme(
@@ -22,12 +26,16 @@ class DropdownFormField extends StatelessWidget {
         child: DropdownButtonFormField(
           isDense: true,
           borderRadius: BorderRadius.circular(20),
-          dropdownColor: const Color(0xffcab497),
+          dropdownColor: (provider.isDarkMode(provider.appMode))
+              ? MyTheme.primaryDarkColor
+              : const Color(0xffcab497),
           decoration: InputDecoration(
             hintText: hintText,
-            hintStyle: Theme.of(context).textTheme.bodyMedium,
+            hintStyle: Theme.of(context).textTheme.titleSmall,
             filled: true,
-            fillColor: MyTheme.primaryLightColor,
+            fillColor: (provider.isDarkMode(provider.appMode))
+                ? MyTheme.primaryDarkColor
+                : MyTheme.primaryLightColor,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(
                   20,
@@ -37,7 +45,7 @@ class DropdownFormField extends StatelessWidget {
           items: items,
           value: value,
           onChanged: onChanged,
-          style: Theme.of(context).textTheme.bodyMedium,
+          style: Theme.of(context).textTheme.labelMedium,
         ),
       ),
     );

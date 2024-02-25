@@ -16,7 +16,6 @@ class SettingsTab extends StatefulWidget {
 }
 
 class _SettingsTabState extends State<SettingsTab> {
-  String? _dropdownModeValue;
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);
@@ -28,7 +27,7 @@ class _SettingsTabState extends State<SettingsTab> {
         children: [
           Text(
             AppLocalizations.of(context)!.lang,
-            style: Theme.of(context).textTheme.labelMedium,
+            style: Theme.of(context).textTheme.labelLarge,
             textAlign: TextAlign.start,
           ),
           DropdownFormField(
@@ -57,12 +56,12 @@ class _SettingsTabState extends State<SettingsTab> {
           ),
           Text(
             AppLocalizations.of(context)!.mode,
-            style: Theme.of(context).textTheme.labelMedium,
+            style: Theme.of(context).textTheme.labelLarge,
             textAlign: TextAlign.start,
           ),
           DropdownFormField(
-            hintText: _dropdownModeValue ?? AppLocalizations.of(context)!.light,
-            value: _dropdownModeValue,
+            hintText: (provider.appMode == ThemeMode.light) ? "Light" : "Dark",
+            value: (provider.appMode == ThemeMode.light) ? "Light" : "Dark",
             items: [
               DropdownMenuItem(
                   value: "Light",
@@ -72,9 +71,11 @@ class _SettingsTabState extends State<SettingsTab> {
                   child: Text(AppLocalizations.of(context)!.dark))
             ],
             onChanged: (selectedValue) {
-              _dropdownModeValue = selectedValue;
-              print(_dropdownModeValue);
-              setState(() {});
+              if (selectedValue == "Light") {
+                provider.changeMode(ThemeMode.light);
+              } else {
+                provider.changeMode(ThemeMode.dark);
+              }
             },
           )
         ],

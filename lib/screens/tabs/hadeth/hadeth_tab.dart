@@ -44,17 +44,15 @@ class _HadethTabState extends State<HadethTab> {
     return Column(
       children: [
         Center(child: Image.asset("assets/images/hadeth_logo.png")),
-        Divider(
+        const Divider(
           thickness: 2,
-          color: MyTheme.primaryLightColor,
         ),
         Text(
           AppLocalizations.of(context)!.alhadeth,
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        Divider(
+        const Divider(
           thickness: 2,
-          color: MyTheme.primaryLightColor,
         ),
         _ahadeth.isEmpty
             ? const Center(
@@ -62,8 +60,7 @@ class _HadethTabState extends State<HadethTab> {
               )
             : Expanded(
                 child: ListView.separated(
-                    separatorBuilder: (context, index) => Divider(
-                          color: MyTheme.primaryLightColor,
+                    separatorBuilder: (context, index) => const Divider(
                           thickness: 0.2,
                         ),
                     itemCount: _ahadeth.length,

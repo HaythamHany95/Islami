@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
+import 'package:provider/provider.dart';
 
 class SebhaStack extends StatelessWidget {
   final double _turns;
@@ -7,6 +9,7 @@ class SebhaStack extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Stack(
       alignment: Alignment.topCenter,
       children: [
@@ -20,9 +23,9 @@ class SebhaStack extends StatelessWidget {
                 milliseconds: 350,
               ),
               child: SizedBox(
-                child: Image.asset(
-                  "assets/images/body_sebha_logo.png",
-                ),
+                child: Image.asset((provider.isDarkMode(provider.appMode)
+                    ? "assets/images/body_sebha_dark.png"
+                    : "assets/images/body_sebha_logo.png")),
               )),
         ),
         Positioned(
@@ -30,9 +33,9 @@ class SebhaStack extends StatelessWidget {
           width: 100,
           top: 9,
           left: 120,
-          child: Image.asset(
-            "assets/images/head_sebha_logo.png",
-          ),
+          child: Image.asset((provider.isDarkMode(provider.appMode)
+              ? "assets/images/head_sebha_dark.png"
+              : "assets/images/head_sebha_logo.png")),
         ),
       ],
     );

@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: MyTheme.lightMode,
+      darkTheme: MyTheme.darkMode,
+      themeMode: provider.appMode,
       initialRoute: TabsScreen.routeName,
       routes: {
         TabsScreen.routeName: (context) => const TabsScreen(),

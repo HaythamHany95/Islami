@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/utilities/mytheme.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class AppBottomNavigationBar extends StatelessWidget {
   final int currenIndex;
@@ -13,8 +15,12 @@ class AppBottomNavigationBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
     return Theme(
-      data: Theme.of(context).copyWith(canvasColor: MyTheme.primaryLightColor),
+      data: Theme.of(context).copyWith(
+          canvasColor: (provider.isDarkMode(provider.appMode))
+              ? MyTheme.primaryDarkColor
+              : MyTheme.primaryLightColor),
       child: BottomNavigationBar(
         currentIndex: currenIndex,
         onTap: onTap,
@@ -43,7 +49,7 @@ class AppBottomNavigationBar extends StatelessWidget {
               label: AppLocalizations.of(context)!.radio),
           BottomNavigationBarItem(
               icon: const Icon(
-                Icons.settings_suggest_outlined,
+                Icons.settings_outlined,
                 size: 33,
               ),
               label: AppLocalizations.of(context)!.settings),

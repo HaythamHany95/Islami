@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/tabs/quraan/models/surah.dart';
 import 'package:islami_app/screens/tabs/quraan/widgets/content_card.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class SurahScreen extends StatefulWidget {
   static const String routeName = "surah_screen";
@@ -36,10 +38,12 @@ class _SurahScreenState extends State<SurahScreen> {
     if (_ayat.isEmpty) {
       loadFile(arg.index);
     }
-
+    var provider = Provider.of<AppConfigProvider>(context);
     return Stack(children: [
       Image.asset(
-        "assets/images/default_bg.png",
+        provider.isDarkMode(provider.appMode)
+            ? "assets/images/dark_bg.png"
+            : "assets/images/default_bg.png",
         width: double.infinity,
         height: double.infinity,
         fit: BoxFit.fill,

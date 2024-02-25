@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/utilities/mytheme.dart';
+import 'package:provider/provider.dart';
 
 class ContentCard extends StatelessWidget {
   final String name;
@@ -14,16 +16,20 @@ class ContentCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return Container(
       padding: const EdgeInsets.all(5),
       margin: EdgeInsets.symmetric(
         horizontal: MediaQuery.of(context).size.width * 0.06,
         vertical: MediaQuery.of(context).size.height * 0.04,
       ),
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(25)),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(25)),
         gradient: LinearGradient(
-          colors: [Colors.white, Colors.white38],
+          colors: provider.isDarkMode(provider.appMode)
+              ? [const Color(0x00141A2E), const Color(0xff141A2E)]
+              : [Colors.white, Colors.white38],
           begin: Alignment.bottomCenter,
           end: Alignment.topCenter,
         ),
@@ -36,6 +42,7 @@ class ContentCard extends StatelessWidget {
           child: Row(
             textDirection: TextDirection.ltr,
             children: [
+              const Spacer(),
               Expanded(
                 flex: 2,
                 child: Text(

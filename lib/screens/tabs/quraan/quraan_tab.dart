@@ -135,22 +135,19 @@ class QuraanTab extends StatelessWidget {
     return Column(
       children: [
         Center(child: Image.asset("assets/images/qur2an_screen_logo.png")),
-        Divider(
+        const Divider(
           thickness: 2,
-          color: MyTheme.primaryLightColor,
         ),
         Text(
           AppLocalizations.of(context)!.surah_name,
           style: Theme.of(context).textTheme.titleMedium,
         ),
-        Divider(
+        const Divider(
           thickness: 2,
-          color: MyTheme.primaryLightColor,
         ),
         Expanded(
           child: ListView.separated(
-              separatorBuilder: (context, index) => Divider(
-                    color: MyTheme.primaryLightColor,
+              separatorBuilder: (context, index) => const Divider(
                     thickness: 0.2,
                   ),
               itemCount: _surahNames.length,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/tabs/hadeth/hadeth_tab.dart';
 import 'package:islami_app/screens/tabs/quraan/quraan_tab.dart';
 import 'package:islami_app/screens/tabs/radio/radio_tab.dart';
@@ -8,6 +9,7 @@ import 'package:islami_app/screens/tabs/widgets/app_navbar.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
 
 class TabsScreen extends StatefulWidget {
   static const String routeName = "tabs_screen";
@@ -19,8 +21,8 @@ class TabsScreen extends StatefulWidget {
 }
 
 class _TabsScreenState extends State<TabsScreen> {
-  int selectedTabIndex = 0;
-  List<Widget> tabs = [
+  int _selectedTabIndex = 0;
+  final List<Widget> _tabs = [
     QuraanTab(),
     const HadethTab(),
     const SebhaTab(),
@@ -29,10 +31,14 @@ class _TabsScreenState extends State<TabsScreen> {
   ];
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<AppConfigProvider>(context);
+
     return Stack(
       children: [
         Image.asset(
-          "assets/images/default_bg.png",
+          provider.isDarkMode(provider.appMode)
+              ? "assets/images/dark_bg.png"
+              : "assets/images/default_bg.png",
           width: double.infinity,
           height: double.infinity,
           fit: BoxFit.fill,
@@ -45,13 +51,13 @@ class _TabsScreenState extends State<TabsScreen> {
             ),
           ),
           bottomNavigationBar: AppBottomNavigationBar(
-              currenIndex: selectedTabIndex,
+              currenIndex: _selectedTabIndex,
               onTap: (newIndex) {
                 setState(() {
-                  selectedTabIndex = newIndex;
+                  _selectedTabIndex = newIndex;
                 });
               }),
-          body: tabs[selectedTabIndex],
+          body: _tabs[_selectedTabIndex],
         )
       ],
     );
