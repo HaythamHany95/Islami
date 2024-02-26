@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/screens/tabs/quraan/models/surah.dart';
 import 'package:islami_app/screens/tabs/quraan/surah_screen.dart';
-import 'package:islami_app/utilities/mytheme.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

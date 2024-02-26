@@ -3,10 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/providers/app_config_provider.dart';
 import 'package:islami_app/screens/tabs/settings/widgets/dropdown_formfield.dart';
+import 'package:provider/provider.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
   const SettingsTab({super.key});
@@ -43,7 +43,7 @@ class _SettingsTabState extends State<SettingsTab> {
                   value: "Arabic",
                   child: Text(AppLocalizations.of(context)!.ar))
             ],
-            onChanged: (selectedValue) {
+            onChanged: (selectedValue) async {
               if (selectedValue == "English") {
                 provider.changeLanguage('en');
               } else {

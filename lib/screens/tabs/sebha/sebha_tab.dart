@@ -39,7 +39,7 @@ class _SebhaTabState extends State<SebhaTab> {
     });
   }
 
-  /// [ MARK ]  STF LifeCycel :-
+  /// [ MARK ]  STF LifeCycle :-
   @override
   Widget build(BuildContext context) {
     var provider = Provider.of<AppConfigProvider>(context);

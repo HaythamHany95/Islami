@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami_app/screens/tabs/hadeth/hadeth_screen.dart';
 import 'package:islami_app/screens/tabs/hadeth/models/hadeth.dart';
-import 'package:islami_app/utilities/mytheme.dart';
 
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

@@ -9,9 +9,12 @@ import 'package:provider/provider.dart';
 /// Localization import
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  AppConfigProvider appConfigProvider = AppConfigProvider();
+  await appConfigProvider.readData();
   runApp(ChangeNotifierProvider(
-    create: (context) => AppConfigProvider(),
+    create: (context) => appConfigProvider,
     child: const MyApp(),
   ));
 }
