@@ -4,16 +4,16 @@ An app developed with flutter that has many features, the most notable of which 
 
 🕌 Features include:
 
-Reading Surahs and Hadiths from files 📖
-Streaming Islamic radio stations 📻
-Sabhah counter to keep track of Dhikr 📿
-Settings for customizing modes and languages ⚙️
+-Reading Surahs and Hadiths from files 📖
+-Streaming Islamic radio stations 📻
+-Sabhah counter to keep track of Dhikr 📿
+-Settings for customizing modes and languages ⚙️
 
 🛠️ Tools & Technologies used:
 
-Flutter for cross-platform mobile development 📱
-Dio package for making API requests 🌐
-Cubit and Bloc for managing API-related functionality
+-Flutter for cross-platform mobile development 📱
+-Dio package for making API requests 🌐
+-Cubit and Bloc for managing API-related functionality
 
 ![Screenshot_1713603686](https://github.com/HaythamHany95/Islami/assets/127749266/fac7d005-1249-4cde-afc7-af5fc50b4ff4)
 ![Screenshot_1713603906](https://github.com/HaythamHany95/Islami/assets/127749266/e38d4e73-f934-484c-8c51-7eb6461b9e79)
